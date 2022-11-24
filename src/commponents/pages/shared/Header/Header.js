@@ -1,23 +1,64 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../../assest/car-logo.png'
 
 const Header = () => {
+
+    const [categories, setCatecories] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/categorieName')
+            .then(res => res.json())
+            .then(data => setCatecories(data))
+    }
+        , [])
+
+    const menuItems = <React.Fragment>
+        <li className='hover:text-amber-500'><Link to="/">Home</Link></li>
+        <li tabIndex={0}>
+          <Link className="justify-between">
+            Categories
+            <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
+          </Link>
+          <ul className="p-2 bg-base-100">
+            {
+                categories.map(c =><li><Link to={`/allCategories/${c.categorie_id}`}>{c.categorie_name}</Link></li>)
+            }
+            {/* <li><Link>Super Car</Link></li>
+            <li><Link>Pickup</Link></li>
+            <li><Link>Shedan</Link></li> */}
+          </ul>
+        </li>
+        <li className='hover:text-amber-500'><Link to="/about">About</Link></li>
+        
+            <>
+                <li className='hover:text-amber-500'><Link to="/dashboard">Dashboard</Link></li>
+                <li className='hover:text-amber-500'><button >Sign out</button></li>
+            </>
+             <li className='hover:text-amber-500'><Link to="/login">Login</Link></li>
+    </React.Fragment>
     return (
-        <div className="navbar bg-base-100 shadow-lg">
-            <div className="flex-1">
-                <Link className="btn btn-ghost normal-case text-xl overflow-hidden">
-                <img className='w-[80px] ' src={logo} alt="" />
+        <div className="navbar bg-base-100 flex justify-between shadow-lg ">
+            <div className="navbar-start">
+                <div className="dropdown">
+                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+                    <ul tabIndex={1} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        {menuItems}
+                    </ul>
+                </div>
+                <Link to="/" className="btn btn-ghost normal-case text-xl">
+                    <img className='w-[80px]' src={logo} alt=""  />
                 </Link>
-                
             </div>
-            <div className="flex-none">
+            <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
-                  <li><Link>Home</Link></li>
-                  <li><Link>Category</Link></li>
-                 <li> <Link>Contact</Link></li>
+                    {menuItems}
                 </ul>
             </div>
+            <label htmlFor="dashboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+            </label>
         </div>
     );
 };

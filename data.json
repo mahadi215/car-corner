@@ -1,0 +1,44 @@
+[
+    {
+        "ctegorieId": "1",
+        "ctegorieName": "supercar",
+        "name" : "ferari supercar",
+        "img": "https://images.unsplash.com/photo-1592198084033-aade902d1aae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+        "brand": "ferrari",
+        "trnsmission": "automatic",
+        "model": "2022"
+    },
+    {
+        "ctegorieId": "2",
+        "ctegorieName": "toyota pickup",
+        "name" : "ferari supercar",
+        "img": "https://images.unsplash.com/photo-1592198084033-aade902d1aae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+        "brand": "toyota",
+        "trnsmission": "manual",
+        "model": "2018"
+    },
+    {
+        "ctegorieId": "3",
+        "ctegorieName": "shedan",
+        "name" : "hondai A6",
+        "img": "https://images.unsplash.com/photo-1592198084033-aade902d1aae?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+        "brand": "hondai",
+        "trnsmission": "automatic",
+        "model": "2019"
+    }
+]
+
+[
+    {
+        "categorie_name": "Super Car" ,
+        "categorie_id": "1"
+       },
+    {
+        "categorie_name": "Pickup" ,
+        "categorie_id": "2"
+       },
+    {
+        "categorie_name": "Shedan" ,
+        "categorie_id": "3"
+       },
+]
