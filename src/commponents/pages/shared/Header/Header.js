@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../../assest/car-logo.png'
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const Header = () => {
-
+    const { user, logOut } = useContext(AuthContext)
     const [categories, setCatecories] = useState([])
+
+    const handleLogOut = ()=>{
+        logOut()
+        .then(()=>{})
+        .catch(error => console.log(error))
+    }
     useEffect(() => {
         fetch('http://localhost:5000/categorieName')
             .then(res => res.json())
@@ -15,26 +22,27 @@ const Header = () => {
     const menuItems = <React.Fragment>
         <li className='hover:text-amber-500'><Link to="/">Home</Link></li>
         <li tabIndex={0}>
-          <Link className="justify-between">
-            Categories
-            <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/></svg>
-          </Link>
-          <ul className="p-2 bg-base-100">
-            {
-                categories.map(c =><li><Link to={`/allCategories/${c.categorie_id}`}>{c.categorie_name}</Link></li>)
-            }
-            {/* <li><Link>Super Car</Link></li>
-            <li><Link>Pickup</Link></li>
-            <li><Link>Shedan</Link></li> */}
-          </ul>
+            <Link className="justify-between">
+                Categories
+                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+            </Link>
+            <ul className="p-2 bg-base-100">
+                {
+                    categories.map(c => <li><Link to={`/allCategories/${c.categorie_id}`}>{c.categorie_name}</Link></li>)
+                }
+
+            </ul>
         </li>
         <li className='hover:text-amber-500'><Link to="/about">About</Link></li>
-        
-            <>
+
+        {
+            user?.uid ? <>
                 <li className='hover:text-amber-500'><Link to="/dashboard">Dashboard</Link></li>
-                <li className='hover:text-amber-500'><button >Sign out</button></li>
+                <li className='hover:text-amber-500'><Link className="tooltip tooltip-bottom" data-tip={user.displayName}><i className="fa-solid fa-user"></i></Link></li>
+                <li className='hover:text-amber-500'><button onClick={handleLogOut} className='btn bg-amber-500 rounded border-0'>Log out</button></li>
             </>
-             <li className='hover:text-amber-500'><Link to="/login">Login</Link></li>
+                : <li className='hover:text-amber-500'><Link to="/login">Login</Link></li>
+        }
     </React.Fragment>
     return (
         <div className="navbar bg-base-100 flex justify-between shadow-lg ">
@@ -48,7 +56,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <Link to="/" className="btn btn-ghost normal-case text-xl">
-                    <img className='w-[80px]' src={logo} alt=""  />
+                    <img className='w-[80px]' src={logo} alt="" />
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
