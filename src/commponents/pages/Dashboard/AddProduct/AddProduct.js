@@ -39,7 +39,7 @@ const AddProduct = () => {
                 console.log(PostData);
                 if (PostData.acknowledged) {
                     toast.success('Added confirmed');
-                    <Navigate to='/dashboard'></Navigate>
+                    <Navigate to='/dashboard' replace={true}></Navigate>
                     
                 }
                 else{

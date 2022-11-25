@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
-import AddProduct from './AddProduct/AddProduct';
 import ProductTable from './ProductTable/ProductTable';
 
 const DashBoard = () => {
@@ -51,7 +50,6 @@ const DashBoard = () => {
                     </table>
                 </div>
             </div>
-            {/* <AddProduct></AddProduct> */}
         </div>
     );
 };

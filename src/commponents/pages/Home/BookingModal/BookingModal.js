@@ -17,20 +17,12 @@ const BookingModal = () => {
                         <div className='lg:grid lg:grid-cols-2 gap-6 my-2'>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label"> <span className="label-text">Car Name</span></label>
-                                <input type="text" {...register("CarName", {
-                                    required: "Car Name is Required"
-                                })} className="input input-bordered w-full max-w-xs" />
-                            </div>
-                            <div className="form-control w-full max-w-xs">
-                                <label className="label"> <span className="label-text">Car Image URL</span></label>
-                                <input type="text" {...register("imgURL", {
-                                    required: "Car Image URL is Required"
+                                <input type="text" readOnly {...register("CarName", {
                                 })} className="input input-bordered w-full max-w-xs" />
                             </div>
                             <div className="form-control w-full max-w-xs">
                                 <label className="label"> <span className="label-text">Car Price</span></label>
-                                <input type="text" {...register("CarPrice", {
-                                    required: "Car Price is Required"
+                                <input type="text" readOnly {...register("CarPrice", {
                                 })} className="input input-bordered w-full max-w-xs" />
                             </div>
                             <div className="form-control w-full max-w-xs">
@@ -46,28 +38,18 @@ const BookingModal = () => {
                             </div>
 
                             <div className="form-control w-full max-w-xs">
-                                <label className="label"> <span className="label-text">Phone Number</span></label>
+                                <label className="label"> <span className="label-text">Your Phone Number</span></label>
                                 <input type="number" {...register("Number", {
                                     required: "Phone Number is Required"
                                 })} className="input input-bordered w-full max-w-xs" />
                             </div>
                             <div className="form-control w-full max-w-xs">
-                                <label className="label"> <span className="label-text">Location</span></label>
+                                <label className="label"> <span className="label-text">Location for meeting</span></label>
                                 <input type="text" {...register("Location", {
                                     required: "Location is Required"
                                 })} className="input input-bordered w-full max-w-xs" />
                             </div>
-                            <div className="form-control w-full max-w-xs">
-                                <label className="label"> <span className="label-text">Categorie</span></label>
-                                <select className="select select-bordered w-full max-w-xs"
-                                    {...register("Categorie", {
-                                        required: "Product Categorie is Required"
-                                    })} >
-                                    <option value={1} selected>Super Car</option>
-                                    <option value={2}>Pickup</option>
-                                    <option value={3}>Shedan</option>
-                                </select>
-                            </div>
+                            
                             
                             
                         </div>

@@ -1,10 +1,18 @@
 
-import React, { } from 'react';
+import React, { useContext } from 'react';
+import { useForm } from 'react-hook-form';
 import { Link, useLoaderData } from 'react-router-dom';
-import BookingModal from '../BookingModal/BookingModal';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const AllCategories = () => {
     const categories = useLoaderData();
+    const {user} = useContext(AuthContext)
+
+    const { register, handleSubmit } = useForm()
+
+    const handleBooking = (data) => {
+        console.log(data);
+    }
 
     return (
         <div className=' my-10 '>
@@ -37,16 +45,70 @@ const AllCategories = () => {
                             <p>Posted : {categorie.date}</p>
                             <div className="card-actions">
                                 <button><label htmlFor="my-modal-3" className="btn btn-dark">BOOK</label> </button>
-                                
+
                             </div>
                         </div>
                         <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+
+                        {/* booking modal */}
+
                         <div className="modal">
                             <div className="modal-box relative">
                                 <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
 
-                                <h3 className="text-lg font-bold">Congratulations random Internet user!</h3>
-                                <p className="py-4">edia for free!</p>
+                                <div className='flex justify-center items-center my-10'>
+                                    <div className='w-100 border-2 font-bold p-7'>
+                                        <h2 className='text-center text-amber-500 font-bold mb-2'>Booking for {categorie.CarName}</h2>
+                                        <form onSubmit={handleSubmit(handleBooking)} >
+                                            <div className='lg:grid lg:grid-cols-2 gap-6 my-2'>
+                                                {/* <div className="form-control w-full max-w-xs">
+                                                    <label className="label"> <span className="label-text">Car Name</span></label>
+                                                    <input type="text" readOnly {...register("CarName", {
+                                                    })} className="input input-bordered w-full max-w-xs" />
+                                                </div> */}
+                                                <div className="form-control w-full max-w-xs">
+                                                    <label className="label"> <span className="label-text">Car Name</span></label>
+                                                    <input value={`${categorie.CarName}`} readOnly {...register("CarName")} 
+                                                    className="input input-bordered w-full max-w-xs" />
+                                                </div>
+                                                <div className="form-control w-full max-w-xs">
+                                                    <label className="label"> <span className="label-text">Car Price</span></label>
+                                                    <input value={`${categorie.CarPrice}`} readOnly {...register("CarPrice")} className="input input-bordered w-full max-w-xs" />
+                                                </div>
+                                                <div className="form-control w-full max-w-xs">
+                                                    <label className="label"> <span className="label-text">Condition</span></label>
+                                                    <input value={`${categorie.Condition}`} readOnly className="select select-bordered w-full max-w-xs"
+                                                        {...register("Condition")}/>
+                                                </div>
+                                                <div className="form-control w-full max-w-xs">
+                                                    <label className="label"> <span className="label-text">Your Email</span></label>
+                                                    <input value={`${user.email}`} readOnly className="select select-bordered w-full max-w-xs"
+                                                        {...register("Email")}/>
+                                                </div>
+                                                <div className="form-control w-full max-w-xs">
+                                                    <label className="label"> <span className="label-text">Name</span></label>
+                                                    <input value={`${user.displayName}`} readOnly className="select select-bordered w-full max-w-xs"
+                                                        {...register("Name")}/>
+                                                </div>
+
+                                                <div className="form-control w-full max-w-xs">
+                                                    <label className="label"> <span className="label-text">Your Phone Number</span></label>
+                                                    <input type="number" {...register("Number", {
+                                                        required: "Phone Number is Required"
+                                                    })} className="input input-bordered w-full max-w-xs" />
+                                                </div>
+                                                <div className="form-control w-full max-w-xs">
+                                                    <label className="label"> <span className="label-text">Location for meeting</span></label>
+                                                    <input type="text" {...register("Location", {
+                                                        required: "Location is Required"
+                                                    })} className="input input-bordered w-full max-w-xs" />
+                                                </div>
+                                            </div>
+
+                                            <input className='btn bg-amber-500 border-0 w-full  mt-4' value="submit" type="submit" />
+                                        </form>
+                                    </div>
+                                </div>
 
 
                             </div>
