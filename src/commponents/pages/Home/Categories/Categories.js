@@ -17,13 +17,13 @@ const Categories = () => {
             <div className='grid gap-6 w-1/2 m-auto my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     categories.map(categorie => <div
-                        className="card  bg-base-100 shadow-xl">
+                        className=" card bg-base-100 shadow-xl">
                         <figure className="px-2 pt-2">
                             <img className='w-2/3' src={categorie.img} alt="" />
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title text-amber-500">{categorie.categorie_name}</h2>
-                            <Link to={`/allCategories/${categorie.categorie_id}`} className='btn w-full bg-amber-500 border-0'>SEE ALL</Link>
+                            <Link to={`/allCategories/${categorie.categorie_id}`} className='btn btn-sm w-full bg-amber-500 border-0'>SEE ALL</Link>
                         </div>
                     </div>)
                 }
