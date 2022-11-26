@@ -5,6 +5,15 @@ const ProductTable = ({ myProduct }) => {
 
     const addToAD = (id)=>{
         console.log(id);
+
+        fetch(`http://localhost:5000/allCategories/advertisment/${id}`,{
+            method: 'PUT',
+
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+        })
     }
 
 
