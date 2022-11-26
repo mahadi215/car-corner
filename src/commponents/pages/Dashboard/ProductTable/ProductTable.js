@@ -1,10 +1,11 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const ProductTable = ({ myProduct }) => {
     const { CarName, CarPrice, imgURL, date , _id} = myProduct;
 
     const addToAD = (id)=>{
-        console.log(id);
+        // console.log(id);
 
         fetch(`http://localhost:5000/allCategories/advertisment/${id}`,{
             method: 'PUT',
@@ -12,7 +13,11 @@ const ProductTable = ({ myProduct }) => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
+            if(data.acknowledged){
+                toast.success('Advertisment Added Succesfully')
+            }
+            else{toast.error(data.message)}
         })
     }
 

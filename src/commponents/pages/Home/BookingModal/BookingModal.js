@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 
-const BookingModal = ({ categorie, setBookingData }) => {
+const BookingModal = ({ categorie, setBookingData, refetch }) => {
 
     const { user } = useContext(AuthContext)
 
@@ -36,6 +36,8 @@ const BookingModal = ({ categorie, setBookingData }) => {
                     toast.success('Booking Confirmed')
                     form.reset()
                     setBookingData(null)
+                    refetch()
+                    
                 }
                 else {
                     toast.error(data.message)
