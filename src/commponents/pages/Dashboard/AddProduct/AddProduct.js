@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Navigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const AddProduct = () => {
     const { register, handleSubmit } = useForm()
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handleProductAdd = (data) => {
         const date = new Date();
@@ -39,7 +40,8 @@ const AddProduct = () => {
                 console.log(PostData);
                 if (PostData.acknowledged) {
                     toast.success('Added confirmed');
-                    <Navigate to='/dashboard' replace={true}></Navigate>
+                    navigate('/dashboard' )
+                    
                     
                 }
                 else{

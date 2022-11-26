@@ -9,10 +9,10 @@ const Footer = () => {
                 <div>
                     <h2 className='text-xl text-left text-amber-500 mb-2'>Links</h2>
                     <ul>
-                        <li className='text-left hover:text-amber-500'> <i className="mr-2 fa-solid fa-arrow-right "></i> <Link>Home</Link></li>
+                        <li className='text-left hover:text-amber-500'> <i className="mr-2 fa-solid fa-arrow-right "></i> <Link to='/home'>Home</Link></li>
                         <li className='text-left hover:text-amber-500'> <i className="mr-2 fa-solid fa-arrow-right "></i> <Link>Categories</Link></li>
-                        <li className='text-left hover:text-amber-500'> <i className="mr-2 fa-solid fa-arrow-right "></i> <Link>About</Link></li>
-                        <li className='text-left hover:text-amber-500'> <i className="mr-2 fa-solid fa-arrow-right "></i> <Link>Contact Us</Link></li>
+                        <li className='text-left hover:text-amber-500'> <i className="mr-2 fa-solid fa-arrow-right "></i> <Link to='/about'>About</Link></li>
+                        <li className='text-left hover:text-amber-500'> <i className="mr-2 fa-solid fa-arrow-right "></i> <Link >Contact Us</Link></li>
                         <li className='text-left hover:text-amber-500'> <i className="mr-2 fa-solid fa-arrow-right "></i> <Link>Privecy Polecy</Link></li>
                     </ul>
                 </div>
