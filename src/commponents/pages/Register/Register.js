@@ -1,29 +1,67 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const {createUser} = useContext(AuthContext)
+    const { createUser, updateUser } = useContext(AuthContext)
     const [signUpError, setSignUPError] = useState('');
+    const navigate = useNavigate()
 
-    const handleSignUp = (data) =>{
+    const handleSignUp = (data) => {
         setSignUPError('')
-            createUser(data.email, data.password)
-            .then(result =>{
+        createUser(data.email, data.password)
+            .then(result => {
                 const user = result.user;
                 console.log(user);
+                const userInfo = {
+                    displayName: data.name
+    
+                }
+                console.log(userInfo);
+                updateUser(userInfo)
+                    .then(() => {
+                        saveUserToDB(data.name, data.email, data.role)
+                    })
+                    .catch(error => console.log(error))
                 toast.success('Register succesfully')
+                navigate('/');
             })
-            .catch(error=>setSignUPError(error.message))
+            .catch(error => setSignUPError(error.message))
+    }
+
+    const saveUserToDB = (name, email, role) => {
+        const user = { name, email, role }
+        fetch('http://localhost:5000/users', {
+            method: 'post',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>
             <div className='w-96 border-2 font-bold p-7'>
-                <h2 className='text-xl text-center'>Sign Up</h2>
+                <h2 className='text-xl text-center mb-2'>Sign Up</h2>
                 <form onSubmit={handleSubmit(handleSignUp)}>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label"> <span className="label-text">Choose Your Account Type</span></label>
+                        <select className="select select-bordered w-full max-w-xs"
+                            {...register("role", {
+                                required: "Type is is Required"
+                            })} >
+                            <option selected>Buyer</option>
+                            <option>Seller</option>
+                            
+                        </select>
+                    </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label"> <span className="label-text">Name</span></label>
                         <input type="text" {...register("name", {
@@ -51,7 +89,7 @@ const Register = () => {
                     {signUpError && <p className='text-red-600'>{signUpError}</p>}
                 </form>
                 <p>Already have an account <Link className='text-amber-500' to="/login">Please Login</Link></p>
-               
+
 
             </div>
         </div>

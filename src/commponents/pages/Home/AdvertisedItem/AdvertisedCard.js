@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const AdvertisedCard = ({categorie, setBookingData}) => {
+    const {user} = useContext(AuthContext);
+    const navigate = useNavigate()
+    console.log(user);
+    const handleNavigate = ()=>{
+            navigate('/login');
+    }
     return (
         <>
             <div 
@@ -20,7 +28,7 @@ const AdvertisedCard = ({categorie, setBookingData}) => {
 
                     <p>Posted : {categorie.date}</p>
                     <div className="card-actions">
-                        <button onClick={() => setBookingData(categorie)}><label htmlFor="my-modal-3" className="btn btn-dark">BOOK</label> </button>
+                        <button onClick={user? () => setBookingData(categorie) : ()=>{handleNavigate()}}><label htmlFor="my-modal-3" className="btn btn-dark">BOOK</label> </button>
 
                     </div>
                 </div>

@@ -6,6 +6,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
     const [categories, setCatecories] = useState([])
+    console.log(user);
 
     const handleLogOut = ()=>{
         logOut()
@@ -34,6 +35,7 @@ const Header = () => {
             </ul>
         </li>
         <li className='hover:text-amber-500'><Link to="/about">About</Link></li>
+        <li className='hover:text-amber-500'><Link to="/blog">Blog</Link></li>
 
         {
             user?.uid ? <>

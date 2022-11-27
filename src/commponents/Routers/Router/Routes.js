@@ -4,6 +4,7 @@ import About from "../../pages/About/About";
 import AddProduct from "../../pages/Dashboard/AddProduct/AddProduct";
 import DashBoard from "../../pages/Dashboard/DashBoard";
 import AllCategories from "../../pages/Home/AllCategories/AllCategories";
+import Blog from "../../pages/Home/Blog/Blog";
 import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             },
             {
                 path: '/about',
+                element:<Blog></Blog>
+            },
+            {
+                path: '/blog',
                 element:<About></About>
             },
             {
