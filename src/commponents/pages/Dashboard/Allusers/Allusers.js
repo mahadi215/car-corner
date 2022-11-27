@@ -3,16 +3,16 @@ import React from 'react';
 
 const Allusers = () => {
 
-    const {data: users = []} = useQuery({
+    const { data: users = [] } = useQuery({
         queryKey: ['users'],
-        queryFn: async()=>{
+        queryFn: async () => {
             const res = await fetch('http://localhost:5000/allusers')
-            const  data = res.json();
+            const data = res.json();
             return data;
         }
     })
 
-    const handleDeleteUser = ()=>{
+    const handleDeleteUser = () => {
 
     }
     return (
@@ -29,29 +29,29 @@ const Allusers = () => {
                             </tr>
                         </thead>
                         {
-                        users.map(user => <tbody key={user._id}
-                        className='border-b'>
-                        <tr>
-                            <td>
-                                <div className="flex items-center space-x-3">
-                                    <div>
-                                        <div className="font-bold">{user.name}</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                {user.email}
-                            </td>
-                            <td>
-                                <div className="flex items-center space-x-3">
-                                <button onClick={()=>{handleDeleteUser()}} className="btn  btn-xs">Delete</button>
-                                {/* <button className="btn bg-red-500 btn-xs">Make Admin</button> */}
-                                </div>
-                                
-                                
-                            </td>
-                        </tr>
-                    </tbody>)
+                            users.map(user => <tbody key={user._id}
+                                className='border-b'>
+                                <tr>
+                                    <td>
+                                        <div className="flex items-center space-x-3">
+                                            <div>
+                                                <div className="font-bold">{user.name}</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        {user.email}
+                                    </td>
+                                    <td>
+                                        <div className="flex items-center space-x-3">
+                                            <button onClick={() => { handleDeleteUser() }} className="btn  btn-xs">Delete</button>
+                                            {/* <button className="btn bg-red-500 btn-xs">Make Admin</button> */}
+                                        </div>
+
+
+                                    </td>
+                                </tr>
+                            </tbody>)
                         }
                         <tfoot>
                             <tr>

@@ -15,7 +15,9 @@ import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 import Adminroute from "../Adminroute/Adminroute";
+import BuyerRoute from "../BuyerRoute/BuyerRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 const router = createBrowserRouter([
     {
@@ -32,11 +34,11 @@ const router = createBrowserRouter([
                 loader: ({params})=>fetch(`http://localhost:5000/allCategories/${params.id}`)
             },
             {
-                path: '/about',
+                path: '/blog',
                 element:<Blog></Blog>
             },
             {
-                path: '/blog',
+                path: '/about',
                 element:<About></About>
             },
             
@@ -55,12 +57,12 @@ const router = createBrowserRouter([
         element: <PrivateRoute> <DashboardLayout></DashboardLayout> </PrivateRoute>,
         children:[
             {
-                path: '/dashboard',
-                element:<MyProducts></MyProducts>
+                path: '/dashboard/myproduct',
+                element:<SellerRoute><MyProducts></MyProducts></SellerRoute>
             },
             {
                 path: '/dashboard/addProduct',
-                element:<AddProduct></AddProduct>
+                element:<SellerRoute><AddProduct></AddProduct></SellerRoute>
             },
             {
                 path: '/dashboard/allusers',
@@ -72,7 +74,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/mywishlist',
-                element:<MywishList></MywishList>
+                element:<BuyerRoute><MywishList></MywishList></BuyerRoute>
             },
         ]
     },
