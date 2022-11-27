@@ -29,9 +29,9 @@ const Login = () => {
             logIn(data.email, data.password)
             .then(result =>{
                 const user = result.user;
-                console.log(user);
-                toast.success('login succesfully')
-                navigate(from, {replace: true})
+                // console.log(user);
+                userToken(data.email )
+               
                 
             })
             .catch(error => {
@@ -39,6 +39,22 @@ const Login = () => {
                 setLoginError(error.message)
             })
      }
+
+     const userToken = email =>{
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data);
+            if(data.accessToken){
+               
+                localStorage.setItem('access token', data.accessToken);
+                toast.success('login succesfully')
+                navigate(from, {replace: true})
+            }
+           
+        })
+    }
+
     return (
             <div className='h-[700px] flex justify-center items-center'>
                 <div className='w-96 p-7 border-2'>

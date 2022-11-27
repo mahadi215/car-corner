@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthProvider';
-import ProductTable from './ProductTable/ProductTable';
-
+import { AuthContext } from '../../../contexts/AuthProvider';
+import ProductTable from '../ProductTable/ProductTable';
 const DashBoard = () => {
     const { user } = useContext(AuthContext)
     const email = user.email;
@@ -10,7 +9,11 @@ const DashBoard = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myProducts/${email}`)
+        fetch(`http://localhost:5000/myProducts/${email}`,{
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access token')}`
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 setMyProduct(data)
