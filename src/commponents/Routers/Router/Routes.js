@@ -3,14 +3,18 @@ import DashboardLayout from "../../Main/DashboardLayout/DashboardLayout";
 import Main from "../../Main/Main";
 import About from "../../pages/About/About";
 import AddProduct from "../../pages/Dashboard/AddProduct/AddProduct";
+import Allsellers from "../../pages/Dashboard/Allsellers/Allsellers";
+import Allusers from "../../pages/Dashboard/Allusers/Allusers";
 import DashBoard from "../../pages/Dashboard/MyProducts/MyProducts";
 import MyProducts from "../../pages/Dashboard/MyProducts/MyProducts";
+import MywishList from "../../pages/Dashboard/MywishList/MywishList";
 
 import AllCategories from "../../pages/Home/AllCategories/AllCategories";
 import Blog from "../../pages/Home/Blog/Blog";
 import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
+import Adminroute from "../Adminroute/Adminroute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -57,6 +61,18 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/addProduct',
                 element:<AddProduct></AddProduct>
+            },
+            {
+                path: '/dashboard/allusers',
+                element:<Adminroute><Allusers></Allusers></Adminroute>
+            },
+            {
+                path: '/dashboard/allsellers',
+                element:<Adminroute><Allsellers></Allsellers></Adminroute>
+            },
+            {
+                path: '/dashboard/mywishlist',
+                element:<MywishList></MywishList>
             },
         ]
     },

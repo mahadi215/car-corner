@@ -23,8 +23,6 @@ const DashBoard = () => {
     return (
         <div className='m-10'>
             <div className=''>
-                <Link to='/addProduct' className='btn w-40'>Add Product </Link>
-
                 <div className="overflow-x-auto w-full">
                     <h2 className='bg-base-800 font-bold text-center text-2xl my-4 text-amber-500'>My Products</h2>
                     <table className="table w-full">
