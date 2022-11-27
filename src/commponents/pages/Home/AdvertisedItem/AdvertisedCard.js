@@ -5,7 +5,7 @@ import { AuthContext } from '../../../contexts/AuthProvider';
 const AdvertisedCard = ({categorie, setBookingData}) => {
     const {user} = useContext(AuthContext);
     const navigate = useNavigate()
-    console.log(user);
+    // console.log(user);
     const handleNavigate = ()=>{
             navigate('/login');
     }

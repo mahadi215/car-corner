@@ -24,27 +24,48 @@ const Register = () => {
                 updateUser(userInfo)
                     .then(() => {
                         saveUserToDB(data.name, data.email, data.role)
+                        userToken(data.email);
+                        
                     })
                     .catch(error => console.log(error))
                 toast.success('Register succesfully')
-                navigate('/');
+                
             })
             .catch(error => setSignUPError(error.message))
     }
 
     const saveUserToDB = (name, email, role) => {
         const user = { name, email, role }
+        
         fetch('http://localhost:5000/users', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(user)
+            
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                
+                // toast.success('Register succesfully')
             })
+            .catch(error => console.log(error))
+    }
+
+    const userToken = email =>{
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+        .then(res => res.json())
+        .then(data => {
+            // console.log(data);
+            if(data.accessToken){
+               
+                localStorage.setItem('access token', data.accessToken);
+                navigate('/')
+            }
+           
+        })
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>
