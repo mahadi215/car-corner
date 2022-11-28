@@ -11,3 +11,7 @@ car corner is used car sell website. in this website you can buy or sell used ca
 6. tailwind css
 7. jsonwebtoken for authorizetion
 
+........................................................
+
+AdminEmail: mahadi1@gmail.com
+AdminPass: Mahadi12345!
