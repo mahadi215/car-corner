@@ -9,6 +9,7 @@ import DashBoard from "../../pages/Dashboard/MyProducts/MyProducts";
 import MyProducts from "../../pages/Dashboard/MyProducts/MyProducts";
 import MywishList from "../../pages/Dashboard/MywishList/MywishList";
 import Payment from "../../pages/Dashboard/Payment/Payment";
+import FourOFour from "../../pages/FourOFour/FourOFour";
 
 import AllCategories from "../../pages/Home/AllCategories/AllCategories";
 import Blog from "../../pages/Home/Blog/Blog";
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '*',
+                element: <FourOFour></FourOFour>
             }
         ]
     },
@@ -81,6 +86,10 @@ const router = createBrowserRouter([
                 path: '/dashboard/payment',
                 element:<BuyerRoute><Payment></Payment></BuyerRoute>
             },
+            {
+                path: '*',
+                element: <FourOFour></FourOFour>
+            }
         ]
     },
 ]);

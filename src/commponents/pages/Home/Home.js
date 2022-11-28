@@ -12,7 +12,6 @@ const Home = () => {
             <Categories></Categories>
             </div>
             <AdvertisedItem></AdvertisedItem>
-            
             <ContuctUs></ContuctUs>
         </div>
     );

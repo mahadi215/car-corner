@@ -1,4 +1,5 @@
 import React from 'react';
+import verifyicon from '../../../../../assest/icon/verified.png'
 
 const CaregoriesCard = ({categorie, setBookingData}) => {
     return (
@@ -15,8 +16,12 @@ const CaregoriesCard = ({categorie, setBookingData}) => {
                     <p>Location : {categorie.Location}</p>
                     <p>Year Of Purchase : {categorie.YearOfPurchase}</p>
 
-                    <>{categorie.SellerName ? <p className=' font-bold'>Seller : {categorie.SellerName} <i className="fa-regular bg-amber-500 fa-badge-check"></i></p>
-                        : 'seller name not found'}</>
+                    <div className='flex items-center justify-between'>
+                        <>{categorie.SellerName ? <p className=' font-bold'>Seller : <> {categorie.SellerName} </></p>
+
+                            : 'seller name not found'}</>
+                        {categorie.Verifystatus ? <img className='w-10 h-10  text-green-500' src={verifyicon} alt="" /> : <span>Not Verified</span>}
+                    </div>
 
                     <p>Posted : {categorie.date}</p>
                     <div className="card-actions">
