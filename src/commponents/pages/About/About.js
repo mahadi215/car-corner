@@ -1,34 +1,22 @@
 import React from 'react';
-import car from '../../../assest/car-2.webp'
+import { Link } from 'react-router-dom';
+// import car from '../../../assest/car-2.webp'
+import bg from '../../../assest/banner-2.webp'
+import logo from '../../../assest/car-logo.png'
 
 const About = () => {
     return (
-        <div className='p-16'>
-            <div>
-                <h2 className='text-2xl'> What are the different ways to manage a state in a React application?</h2>
-                <p> In React apps, there are at least seven ways to handle the state. Let us briefly explore a few of them in this part. <br />
-                    We can use URL to store some data e.g. <br />
-
-                    The id of the current item, being viewed <br />
-                    Filter parameters <br />
-                    Pagination offset and limit <br />
-                    Sorting data </p>
-            </div> <br />
-
-            <div>
-                <h2 className='text-2xl'> How does prototypical inheritance work?</h2>
-                <p>The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object. getPrototypeOf and Object.</p>
-            </div> <br />
-            <div>
-                <h2 className='text-2xl'> What is a unit test? Why should we write unit tests?</h2>
-                <p>The main objective of unit testing is to isolate written code to test and determine if it works as intended. Unit testing is an important step in the development process, because if done correctly, it can help detect early flaws in code which may be more difficult to find in later testing stages.</p>
-            </div> <br />
-            <div>
-                <h2 className='text-2xl'> React vs. Angular vs. Vue?
-
-                </h2>
-                <p>
-                    Vue provides higher customizability and hence is easier to learn than Angular or React. Further, Vue has an overlap with Angular and React with respect to their functionality like the use of components. Hence, the transition to Vue from either of the two is an easy option.</p>
+        <div className='p-0'>
+            <div className="hero min-h-screen" style={{ backgroundImage: `url("${bg}")` }}>
+                <div className="hero-overlay brightness-50 bg-opacity-90"></div>
+                <div className="hero-content text-center text-neutral-content">
+                    <div className="max-w-md">
+                        <img className='w-1/2 m-auto' src={logo} alt="" />
+                        <h1 className="mb-5 text-5xl font-bold">car Corner</h1>
+                        <p className="mb-5">Car Corner is a Buy Sell website. We allways trying to make your life easy. Here you can sell your used car and buye a used car.</p>
+                        <Link to='' className="btn border-0 bg-amber-500">Subscribe</Link>
+                    </div>
+                </div>
             </div>
         </div>
     );

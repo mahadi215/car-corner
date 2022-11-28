@@ -11,11 +11,11 @@ const Categories = () => {
         , [])
     return (
         <div 
-         className=' p-10' id='categories'>
+         className=' bg-gray-800 p-2' id='categories'>
             <h2 className='text-center text-xl font-bold text-amber-500'>CATEGORIES</h2>
             <br />
             <h2 className='text-center text-3xl font-bold text-white'>FIND YOUR DREAM CAR</h2>
-            <div className='grid gap-6 w-1/2 m-auto my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='grid gap-6 md:w-2/3 lg:w-1/2 w-full m-auto my-10 grid-cols md:grid-cols-3  lg:grid-cols-3'>
                 {
                     categories.map(categorie => <div
                         className=" card bg-base-100 shadow-xl">

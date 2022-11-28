@@ -18,13 +18,13 @@ const AdvertisedItem = () => {
     });
 
     if(isLoading)
-    return <progress className="progress w-56 my-20"></progress>;
+    return <progress className="progress w-56 m-auto my-20"></progress>;
 
     return (
-        <div className='py-16'>
+        <div className='p-2 lg:p-16 '>
             <h2 className='text-3xl text-center'>Advertised Items</h2>
             <div className=' my-10 '>
-            <div className=' m-auto p-6 grid gap-6 grid-cols-1 lg:grid-cols-3 md:grid-cols-2 '>
+            <div style={{marginTop: '-32'}} className=' m-auto  p-6 grid gap-6 grid-cols-1 lg:grid-cols-3 md:grid-cols-2 '>
                 {
                     advertisments.map(categorie => <AdvertisedCard
                          key={categorie._id}

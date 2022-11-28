@@ -1,4 +1,5 @@
 import React from 'react';
+import About from '../About/About';
 import AdvertisedItem from './AdvertisedItem/AdvertisedItem';
 import Banner from './Banner/Banner';
 import Categories from './Categories/Categories';
@@ -8,10 +9,9 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <div className='bg-gray-800'>
             <Categories></Categories>
-            </div>
             <AdvertisedItem></AdvertisedItem>
+            <About></About>
             <ContuctUs></ContuctUs>
         </div>
     );

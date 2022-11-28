@@ -26,7 +26,7 @@ const Footer = () => {
             </div>
             <br />
             <hr />
-            <p className='mt-6'><i className="fa-regular fa-copyright"></i> Copyright : Car_Corner 2022</p>
+            <p className='mt-6 text-center'><i className="fa-regular fa-copyright"></i> Copyright : Car_Corner 2022</p>
         </div>
     );
 };

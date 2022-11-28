@@ -13,7 +13,7 @@ const AdvertisedCard = ({ categorie, setBookingData }) => {
     return (
         <>
             <div
-                className="card bg-base-100 shadow-xl">
+                className="card  bg-base-100 shadow-xl">
                 <figure className="">
                     <img src={categorie.imgURL} alt="Shoes" className=" h-50 w-full" />
                 </figure>
