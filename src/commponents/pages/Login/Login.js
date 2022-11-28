@@ -21,7 +21,7 @@ const Login = () => {
                 const user = result.user;
                 
                 console.log(user);
-                saveUserToDB(user.displayName, user.email, role);
+                saveGooglUserToDB(user.displayName, user.email, role);
                 userToken(user.email)
 
 
@@ -44,10 +44,10 @@ const Login = () => {
     }
 
 
-    const saveUserToDB = (name, email, role) => {
+    const saveGooglUserToDB = (name, email, role) => {
         const user = { name, email, role }
 
-        fetch('http://localhost:5000/users', {
+        fetch('http://localhost:5000/googleusers', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'

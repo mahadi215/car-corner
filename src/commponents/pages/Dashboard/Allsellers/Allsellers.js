@@ -11,7 +11,8 @@ const Allsellers = () => {
             return data;
         }
     })
-    
+
+
     // delete seller
     const handleDeleteseller = user => {
         fetch(`http://localhost:5000/users/deleteUsers/${user.email}`, {
