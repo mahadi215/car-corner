@@ -6,7 +6,7 @@ const ProductTable = ({ myProduct }) => {
 
     const addToAD = (id)=>{
         // console.log(id);
-        fetch(`http://localhost:5000/allCategories/advertisment/${id}`,{
+        fetch(`https://car-corner-server.vercel.app/allCategories/advertisment/${id}`,{
             method: 'PUT',
         })
         .then(res => res.json())
@@ -20,7 +20,7 @@ const ProductTable = ({ myProduct }) => {
     }
 
     const handleDeleteItem = myProduct => {
-        fetch(`http://localhost:5000/allCategories/delete/${myProduct._id}`, {
+        fetch(`https://car-corner-server.vercel.app/allCategories/delete/${myProduct._id}`, {
             method: 'DELETE', 
             headers: {
                 authorization: `bearer ${localStorage.getItem('access token')}`

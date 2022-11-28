@@ -28,7 +28,7 @@ const AddProduct = () => {
         }
         console.log(product);
 
-        fetch('http://localhost:5000/allCategories', {
+        fetch('https://car-corner-server.vercel.app/allCategories', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'

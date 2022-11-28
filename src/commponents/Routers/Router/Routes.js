@@ -33,7 +33,7 @@ const router = createBrowserRouter([
             {
                 path: '/allCategories/:id',
                 element: <PrivateRoute><AllCategories></AllCategories></PrivateRoute>,
-                loader: ({params})=>fetch(`http://localhost:5000/allCategories/${params.id}`)
+                loader: ({params})=>fetch(`https://car-corner-server.vercel.app/allCategories/${params.id}`)
             },
             {
                 path: '/blog',

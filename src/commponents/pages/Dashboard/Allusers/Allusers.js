@@ -7,14 +7,14 @@ const Allusers = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allusers')
+            const res = await fetch('https://car-corner-server.vercel.app/allusers')
             const data = res.json();
             return data;
         }
     })
 
     const handleDeleteUser = user => {
-        fetch(`http://localhost:5000/users/deleteUsers/${user.email}`, {
+        fetch(`https://car-corner-server.vercel.app/users/deleteUsers/${user.email}`, {
             method: 'DELETE', 
             headers: {
                 authorization: `bearer ${localStorage.getItem('access token')}`

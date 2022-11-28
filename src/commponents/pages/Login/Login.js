@@ -47,7 +47,7 @@ const Login = () => {
     const saveGooglUserToDB = (name, email, role) => {
         const user = { name, email, role }
 
-        fetch('http://localhost:5000/googleusers', {
+        fetch('https://car-corner-server.vercel.app/googleusers', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'
@@ -67,7 +67,7 @@ const Login = () => {
 
 
     const userToken = email => {
-        fetch(`http://localhost:5000/jwt?email=${email}`)
+        fetch(`https://car-corner-server.vercel.app/jwt?email=${email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);

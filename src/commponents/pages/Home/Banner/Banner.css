@@ -1,0 +1,25 @@
+.banner-title {
+    position: relative;
+    animation-name: titleanim;
+    animation-duration: 1.5s;
+}
+
+@keyframes titleanim {
+    0%   {  top:-200px;}
+    100% { left:0px; top:0px;}
+  }
+  
+ 
+.banner-box{
+    position: relative;
+    animation-name: titleanim2;
+    animation-duration: 1.5s;
+    
+}
+
+@keyframes titleanim2 {
+    0%   {  top:-200px;}
+    100% { left:0px; top:0px;}
+  }
+  
+  

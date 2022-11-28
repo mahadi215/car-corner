@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 const Categories = () => {
     const [categories, setCatecories] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/categorieName')
+        fetch('https://car-corner-server.vercel.app/categorieName')
             .then(res => res.json())
             .then(data => setCatecories(data))
     }
         , [])
     return (
         <div 
-         className=' bg-gray-800 p-2' id='categories'>
+         className='py-6 bg-gray-800 p-2' id='categories'>
             <h2 className='text-center text-xl font-bold text-amber-500'>CATEGORIES</h2>
             <br />
             <h2 className='text-center text-3xl font-bold text-white'>FIND YOUR DREAM CAR</h2>

@@ -24,7 +24,7 @@ const BookingModal = ({ categorie, setBookingData, refetch }) => {
         }
         console.log(booking);
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://car-corner-server.vercel.app/bookings', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'

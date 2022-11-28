@@ -9,7 +9,7 @@ const DashBoard = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myProducts/${email}`,{
+        fetch(`https://car-corner-server.vercel.app/myProducts/${email}`,{
             headers: {
                 authorization: `bearer ${localStorage.getItem('access token')}`
             }

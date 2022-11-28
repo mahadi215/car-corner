@@ -6,7 +6,7 @@ const Allsellers = () => {
     const { data: sellers = [] ,refetch} = useQuery({
         queryKey: ['sellers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allsellers')
+            const res = await fetch('https://car-corner-server.vercel.app/allsellers')
             const data = res.json();
             return data;
         }
@@ -15,7 +15,7 @@ const Allsellers = () => {
 
     // delete seller
     const handleDeleteseller = user => {
-        fetch(`http://localhost:5000/users/deleteUsers/${user.email}`, {
+        fetch(`https://car-corner-server.vercel.app/users/deleteUsers/${user.email}`, {
             method: 'DELETE', 
             headers: {
                 authorization: `bearer ${localStorage.getItem('access token')}`
@@ -33,7 +33,7 @@ const Allsellers = () => {
 
         // verify seller
         const handleVerifyseller = (email)=>{
-            fetch(`http://localhost:5000/allCategories/makeverify/${email}`,{
+            fetch(`https://car-corner-server.vercel.app/allCategories/makeverify/${email}`,{
                 method: 'PUT',
             })
             .then(res => res.json())

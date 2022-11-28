@@ -10,7 +10,7 @@ const MywishList = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/mybookings/${email}`, {
+        fetch(`https://car-corner-server.vercel.app/mybookings/${email}`, {
             headers: {
                 authorization: `bearer ${localStorage.getItem('access token')}`
             }

@@ -14,7 +14,7 @@ const Header = () => {
         .catch(error => console.log(error))
     }
     useEffect(() => {
-        fetch('http://localhost:5000/categorieName')
+        fetch('https://car-corner-server.vercel.app/categorieName')
             .then(res => res.json())
             .then(data => setCatecories(data))
     }
