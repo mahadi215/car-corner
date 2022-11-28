@@ -8,6 +8,7 @@ import Allusers from "../../pages/Dashboard/Allusers/Allusers";
 import DashBoard from "../../pages/Dashboard/MyProducts/MyProducts";
 import MyProducts from "../../pages/Dashboard/MyProducts/MyProducts";
 import MywishList from "../../pages/Dashboard/MywishList/MywishList";
+import Payment from "../../pages/Dashboard/Payment/Payment";
 
 import AllCategories from "../../pages/Home/AllCategories/AllCategories";
 import Blog from "../../pages/Home/Blog/Blog";
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/mywishlist',
                 element:<BuyerRoute><MywishList></MywishList></BuyerRoute>
+            },
+            {
+                path: '/dashboard/payment',
+                element:<BuyerRoute><Payment></Payment></BuyerRoute>
             },
         ]
     },

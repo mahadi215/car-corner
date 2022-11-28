@@ -40,7 +40,7 @@ const AddProduct = () => {
                 console.log(PostData);
                 if (PostData.acknowledged) {
                     toast.success('Added confirmed');
-                    navigate('/dashboard' )
+                    navigate('/dashboard/myproduct' )
                     
                     
                 }

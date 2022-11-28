@@ -11,6 +11,7 @@ const BookingModal = ({ categorie, setBookingData, refetch }) => {
         event.preventDefault();
         const form = event.target;
         const CarName = form.CarName.value;
+        const imgURL = form.imgURL.value;
         const CarPrice = form.CarPrice.value;
         const Condition = form.Condition.value;
         const BuyerEmail = form.BuyerEmail.value;
@@ -19,7 +20,7 @@ const BookingModal = ({ categorie, setBookingData, refetch }) => {
         const Location = form.Location.value;
 
         const booking = {
-            CarName, CarPrice, Condition, BuyerEmail, BuyerName, BuyerPhone, Location
+            CarName, imgURL,CarPrice, Condition, BuyerEmail, BuyerName, BuyerPhone, Location
         }
         console.log(booking);
 
@@ -65,6 +66,11 @@ const BookingModal = ({ categorie, setBookingData, refetch }) => {
                                     <div className="form-control w-full max-w-xs">
                                         <label className="label"> <span className="label-text">Car Name</span></label>
                                         <input name='CarName' defaultValue={`${categorie.CarName}`} readOnly
+                                            className="input input-bordered w-full max-w-xs" />
+                                    </div>
+                                    <div className="form-control w-full max-w-xs">
+                                        <label className="label"> <span className="label-text">Image</span></label>
+                                        <input name='imgURL' defaultValue={`${categorie.imgURL}`} readOnly
                                             className="input input-bordered w-full max-w-xs" />
                                     </div>
                                     <div className="form-control w-full max-w-xs">

@@ -18,7 +18,7 @@ const Allsellers = () => {
         <div>
             <div className='mx-2'>
                 <div className="overflow-x-auto w-full">
-                    <h2 className='bg-base-800 font-bold text-center text-2xl my-4 text-amber-500'>{sellers.length} sellers</h2>
+                    <h2 className='bg-base-800 font-bold text-center text-2xl my-4 text-amber-500'>{sellers.length} sellers Found</h2>
                     <table className="table w-full">
                         <thead>
                             <tr>
