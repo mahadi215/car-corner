@@ -6,10 +6,8 @@ const ProductTable = ({ myProduct }) => {
 
     const addToAD = (id)=>{
         // console.log(id);
-
         fetch(`http://localhost:5000/allCategories/advertisment/${id}`,{
             method: 'PUT',
-
         })
         .then(res => res.json())
         .then(data => {
@@ -21,6 +19,22 @@ const ProductTable = ({ myProduct }) => {
         })
     }
 
+    const handleDeleteItem = myProduct => {
+        fetch(`http://localhost:5000/allCategories/delete/${myProduct._id}`, {
+            method: 'DELETE', 
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access token')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.deletedCount > 0){
+                
+                toast.success(`${myProduct.name} deleted successfully`)
+            }
+        })
+    }
 
     return (
         <tbody className='border-b'>
@@ -45,7 +59,7 @@ const ProductTable = ({ myProduct }) => {
                 <td>
                     <div className="flex items-center space-x-3">
                     <button onClick={()=>{addToAD(_id)}} className="btn  btn-xs">Advertise</button>
-                    <button className="btn bg-red-500 btn-xs">Delete</button>
+                    <button onClick={()=>{handleDeleteItem(myProduct)}} className="btn bg-red-500 btn-xs">Delete</button>
                     </div>
                     
                     

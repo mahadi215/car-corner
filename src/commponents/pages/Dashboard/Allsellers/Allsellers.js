@@ -1,8 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import toast from 'react-hot-toast';
 
 const Allsellers = () => {
-    const { data: sellers = [] } = useQuery({
+    const { data: sellers = [] ,refetch} = useQuery({
         queryKey: ['sellers'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/allsellers')
@@ -10,10 +11,42 @@ const Allsellers = () => {
             return data;
         }
     })
-
-    const handleDeleteseller = () => {
-
+    
+    // delete seller
+    const handleDeleteseller = user => {
+        fetch(`http://localhost:5000/users/deleteUsers/${user.email}`, {
+            method: 'DELETE', 
+            headers: {
+                authorization: `bearer ${localStorage.getItem('access token')}`
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.deletedCount > 0){
+                refetch()
+                toast.success(`${user.name} deleted successfully`)
+            }
+        })
     }
+
+        // verify seller
+        const handleVerifyseller = (email)=>{
+            fetch(`http://localhost:5000/allCategories/makeverify/${email}`,{
+                method: 'PUT',
+            })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                if(data.acknowledged){
+                    refetch()
+                    toast.success('Verify Succesfully')
+                }
+                else{toast.error(data.message)
+                console.log(data);}
+            })
+        }
+
     return (
         <div>
             <div className='mx-2'>
@@ -43,8 +76,8 @@ const Allsellers = () => {
                                     </td>
                                     <td>
                                         <div className="flex items-center space-x-3">
-                                        <button className="btn bg-green-500 btn-xs">Verify</button>
-                                            <button onClick={() => { handleDeleteseller() }} className="btn  btn-xs">Delete</button>
+                                        <button onClick={() => { handleVerifyseller(seller.email) }} className="btn bg-green-500 btn-xs">Verify</button>
+                                            <button onClick={() => { handleDeleteseller(seller) }} className="btn  btn-xs">Delete</button>
                                             
                                         </div>
 

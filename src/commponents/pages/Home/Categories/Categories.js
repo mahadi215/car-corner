@@ -10,7 +10,8 @@ const Categories = () => {
     }
         , [])
     return (
-        <div className='py-6 pt-10 bg-gray-800' id='categories'>
+        <div 
+         className=' p-10' id='categories'>
             <h2 className='text-center text-xl font-bold text-amber-500'>CATEGORIES</h2>
             <br />
             <h2 className='text-center text-3xl font-bold text-white'>FIND YOUR DREAM CAR</h2>

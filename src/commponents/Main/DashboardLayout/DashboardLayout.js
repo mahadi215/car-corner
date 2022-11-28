@@ -30,8 +30,8 @@ const DashboardLayout = () => {
                 <ul className="menu p-4 w-80 bg-amber-400 text-base-content ">
                     {
                         isSeller &&
-                    <><li><Link className='font-bold' to="/dashboard/myproduct">My Products</Link></li>
-                     <li><Link className='font-bold' to="/dashboard/addProduct">Add Products</Link></li></>
+                                 <><li><Link className='font-bold' to="/dashboard/myproduct">My Products</Link></li>
+                                 <li><Link className='font-bold' to="/dashboard/addProduct">Add Products</Link></li></>
                     }
                     {
                         isBuyer &&
